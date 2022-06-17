@@ -1,14 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Test.Core.Enums;
+﻿using Test.Core.Enums;
 
 namespace Test.Models
 {
-    
+
     public class DocumentModel
     {
         public long Id { get; set; }
-
-        public string Name { get; set; }
 
         public Status Status { get; set; }
 
@@ -18,7 +15,8 @@ namespace Test.Models
 
         public List<StringFieldModel> StringFields { get; set; }
 
-        [Required]
         public long TemplateId { get; set; }
+
+        public long ApplicationUserId { get; set; }
     }
 }

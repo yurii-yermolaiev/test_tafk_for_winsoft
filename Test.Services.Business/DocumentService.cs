@@ -70,7 +70,7 @@ namespace Test.Services.Business
             await _documentTemplateReposetory.SaveAsync();
         }
 
-        public async Task<DocumentTemplateModel> GetTemplateModelAsync(long id)
+        public async Task<DocumentTemplateModel> GetTemplateAsync(long id)
         {
             var template = await _documentTemplateReposetory.GetAsync(id);
 
@@ -84,11 +84,20 @@ namespace Test.Services.Business
             return result;
         }
 
-        public async Task<IEnumerable<DocumentTemplateModel>> GetTemplateModelsAsync()
+        public async Task<IEnumerable<DocumentTemplateModel>> GetDocumentTemplatesAsync()
         {
             var templates = await _documentTemplateReposetory.GetAllAsync();
 
             var result = _mapper.Map<List<DocumentTemplateModel>>(templates);
+
+            return result;
+        }
+
+        public async Task<IEnumerable<DocumentModel>> GetDocumentsAsync()
+        {
+            var templates = await _documentReposetory.GetAllAsync();
+
+            var result = _mapper.Map<List<DocumentModel>>(templates);
 
             return result;
         }

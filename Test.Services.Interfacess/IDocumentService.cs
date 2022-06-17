@@ -7,9 +7,11 @@ namespace Test.Services.Interfacess
     {
         public Task CreateTemplateAsync(CreateDocumentTemplateModel model);
 
-        public Task<IEnumerable<DocumentTemplateModel>> GetTemplateModelsAsync();
+        public Task<IEnumerable<DocumentTemplateModel>> GetDocumentTemplatesAsync();
 
-        public Task<DocumentTemplateModel> GetTemplateModelAsync(long id);
+        public Task<IEnumerable<DocumentModel>> GetDocumentsAsync();
+
+        public Task<DocumentTemplateModel> GetTemplateAsync(long id);
 
         public Task<bool> CreateDocumentAsync(CreateDocumentModel model);
 

@@ -26,9 +26,17 @@ namespace Test.Web.Controllers
         }
 
         [HttpGet("document-templates")]
-        public async Task<ActionResult<IEnumerable<DocumentTemplateModel>>> GetTemplatesAsync()
+        public async Task<ActionResult<IEnumerable<DocumentTemplateModel>>> GetDocumentTemplatesAsync()
         {
-            var result = await _documentService.GetTemplateModelsAsync();
+            var result = await _documentService.GetDocumentTemplatesAsync();
+
+            return Ok(result);
+        }
+
+        [HttpGet("documents")]
+        public async Task<ActionResult<IEnumerable<DocumentModel>>> GetDocumentsAsync()
+        {
+            var result = await _documentService.GetDocumentsAsync();
 
             return Ok(result);
         }
@@ -36,7 +44,7 @@ namespace Test.Web.Controllers
         [HttpGet("document-templates/{id}")]
         public async Task<ActionResult<DocumentTemplateModel>> GetTemplatesAsync([FromRoute] long id)
         {
-            var result = await _documentService.GetTemplateModelAsync(id);
+            var result = await _documentService.GetTemplateAsync(id);
 
             return Ok(result);
         }
